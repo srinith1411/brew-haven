@@ -271,3 +271,132 @@ behavior:"smooth"
 
 
 }
+// =========================
+// DYNAMIC MENU
+// =========================
+// =========================
+// DYNAMIC MENU
+// =========================
+
+const extraMenuItems = [
+
+{
+image:"coldcoffee.png",
+name:"Cold Coffee",
+description:"Chilled coffee blended with milk and ice for a refreshing taste.",
+price:"$5.49"
+},
+
+{
+image:"filtercoffee.png",
+name:"Filter Coffee",
+description:"Traditional South Indian coffee prepared with rich aroma and flavor.",
+price:"$3.99"
+},
+
+{
+image:"caramelmacchiato.png",
+name:"Caramel Macchiato",
+description:"Espresso combined with milk and caramel sweetness.",
+price:"$6.99"
+},
+
+{
+image:"affogato.png",
+name:"Affogato",
+description:"Hot espresso poured over creamy vanilla ice cream.",
+price:"$7.49"
+},
+
+{
+image:"flatwhite.png",
+name:"Flat White",
+description:"Smooth espresso with steamed milk and velvety microfoam.",
+price:"$5.99"
+}
+
+];
+
+
+const menuBtn = document.querySelector("#view-menu");
+
+const menuGrid = document.querySelector("#menu-grid");
+
+let menuShown = false;
+
+
+if(menuBtn && menuGrid){
+
+
+menuBtn.addEventListener("click",()=>{
+
+
+if(menuShown){
+
+
+    document.querySelectorAll(".extra-card")
+    .forEach(card=>{
+        card.remove();
+    });
+
+
+    menuBtn.textContent="View Full Menu";
+
+    menuShown=false;
+
+
+    // return to original menu cards
+    document.querySelector(".menu-card")
+    .scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+
+}
+
+
+
+else{
+
+
+    extraMenuItems.forEach(item=>{
+
+
+        menuGrid.insertAdjacentHTML(
+        "beforeend",
+
+        `
+        <div class="menu-card extra-card">
+
+            <img src="assets/${item.image}" alt="${item.name}">
+
+            <h3>${item.name}</h3>
+
+            <p>${item.description}</p>
+
+            <span class="price">${item.price}</span>
+
+        </div>
+        `
+
+        );
+
+
+    });
+
+
+
+    menuBtn.textContent="Hide Full Menu";
+
+    menuShown=true;
+
+
+}
+
+
+
+});
+
+
+}
