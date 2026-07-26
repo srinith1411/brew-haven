@@ -703,13 +703,23 @@ border-bottom:2px solid #c49b63;
         width:100%;
     }
 
+    .reservation-form input[type="date"],
+    .reservation-form input[type="time"]{
+        text-align:left;
+    }
+
     .footer-content{
         flex-direction:column;
-        text-align:center;
+        text-align:left;
     }
 
     .footer-about{
         max-width:100%;
+    }
+
+    .footer-about h2,
+    .footer-about p{
+        text-align:left;
     }
 
 }
