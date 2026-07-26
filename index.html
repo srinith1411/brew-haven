@@ -297,7 +297,7 @@
 
                 <p>Reserve your favorite spot and enjoy an unforgettable coffee experience.</p>
 
-              <form class="reservation-form" id="reservation-form">
+             <form class="reservation-form" id="reservation-form">
 
     <input id="name" type="text" placeholder="Full Name" required>
 
@@ -307,56 +307,57 @@
 
     <input id="guests" type="number" placeholder="Number of Guests" min="1" required>
 
-    <label for="date">Date</label>
-    <input id="date" type="date" required>
 
-   <label for="time">Time</label>
+    <div class="date-box">
 
-<div class="time-select">
+        <input id="date" type="date" required>
 
-    <select id="hour" required>
-        <option value="">Hour</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-    </select>
+    </div>
 
-    <select id="minute" required>
-        <option value="">Minute</option>
-        <option>00</option>
-        <option>15</option>
-        <option>30</option>
-        <option>45</option>
-    </select>
 
-    <select id="period" required>
-        <option value="">AM/PM</option>
-        <option>AM</option>
-        <option>PM</option>
-    </select>
+    <div class="time-box">
 
-</div>
+        <select id="time-slot" required>
 
-    <textarea id="message" placeholder="Special Requests (Optional)" rows="5"></textarea>
+            <option value="">Select Time Slot</option>
+
+            <option>09:00 AM - 10:00 AM</option>
+            <option>10:00 AM - 11:00 AM</option>
+            <option>11:00 AM - 12:00 PM</option>
+
+            <option>12:00 PM - 01:00 PM</option>
+            <option>01:00 PM - 02:00 PM</option>
+            <option>02:00 PM - 03:00 PM</option>
+
+            <option>03:00 PM - 04:00 PM</option>
+            <option>04:00 PM - 05:00 PM</option>
+
+            <option>05:00 PM - 06:00 PM</option>
+            <option>06:00 PM - 07:00 PM</option>
+            <option>07:00 PM - 08:00 PM</option>
+
+            <option>08:00 PM - 09:00 PM</option>
+
+        </select>
+
+    </div>
+
+
+    <textarea 
+    id="message" 
+    placeholder="Special Requests (Optional)" 
+    rows="5"></textarea>
+
 
     <button type="submit" class="primary-btn">
         Book a Table
     </button>
 
+
     <p id="success-message"></p>
 
+
 </form>
-
-
 
             </div>
 

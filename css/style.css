@@ -401,7 +401,6 @@ border-bottom:2px solid #c49b63;
     color:#c08b45;
     font-size:20px;
 }
-
 .reservation{
     padding:60px 0;
     text-align:center;
@@ -420,6 +419,7 @@ border-bottom:2px solid #c49b63;
 
 .reservation-form{
     width:70%;
+    max-width:700px;
     margin:0 auto;
     display:flex;
     flex-direction:column;
@@ -427,40 +427,8 @@ border-bottom:2px solid #c49b63;
 }
 
 .reservation-form input,
-.reservation-form textarea{
-    padding:15px;
-    border:1px solid #ccc;
-    border-radius:10px;
-    font-size:16px;
-    font-family:'Poppins',sans-serif;
-    outline:none;
-}
-
-.reservation-form label{
-    text-align:left;
-    font-weight:500;
-    color:#555;
-}
-
-.reservation-form input:focus,
-.reservation-form textarea:focus{
-    border-color:#c08b45;
-}
-
-.reservation-form textarea{
-    resize:none;
-}
-
-.reservation-form button{
-    align-self:center;
-}
-.time-select{
-    display:flex;
-    gap:10px;
-    width:100%;
-}
-
-.time-select select{
+.reservation-form textarea,
+.time-box select{
     width:100%;
     padding:15px;
     border:1px solid #ccc;
@@ -471,10 +439,28 @@ border-bottom:2px solid #c49b63;
     background:#fff;
 }
 
-.time-select select:focus{
+.reservation-form input:focus,
+.reservation-form textarea:focus,
+.time-box select:focus{
     border-color:#c08b45;
 }
 
+.date-box,
+.time-box{
+    width:100%;
+}
+
+.time-box select{
+    cursor:pointer;
+}
+
+.reservation-form textarea{
+    resize:none;
+}
+
+.reservation-form button{
+    align-self:center;
+}
 
 .reservation-form input[type="date"]{
     color:#555;
@@ -484,6 +470,10 @@ border-bottom:2px solid #c49b63;
     cursor:pointer;
 }
 
+#success-message{
+    font-size:15px;
+    line-height:1.6;
+}
 .footer{
     background:#2c1810;
     color:#fff;
@@ -614,11 +604,15 @@ border-bottom:2px solid #c49b63;
     }
 
     .nav-links ul{
-        gap:15px;
+        gap:12px;
+    }
+
+    .nav-links a{
+        font-size:15px;
     }
 
     .nav-button a{
-        padding:10px 18px;
+        padding:10px 16px;
     }
 
     .hero-content h2{
@@ -644,7 +638,6 @@ border-bottom:2px solid #c49b63;
     }
 
 }
-
 
 /* =========================
    MOBILE
@@ -696,10 +689,11 @@ border-bottom:2px solid #c49b63;
 
     /* HERO */
 
-    #hero{
-        padding:60px 0;
-        margin-top:150px;
-    }
+  #hero{
+
+    padding:80px 0 60px;
+
+}
 
     #hero .container{
         flex-direction:column-reverse;
@@ -776,42 +770,37 @@ border-bottom:2px solid #c49b63;
 
 
     /* RESERVATION */
+/* =========================
+   RESERVATION
+========================= */
 
-    .reservation-form{
-        width:100%;
-        max-width:350px;
-        margin:auto;
-        gap:18px;
-    }
+.reservation-form{
+    width:100%;
+    max-width:350px;
+    margin:auto;
+    gap:18px;
+}
 
-    .reservation h2{
-        font-size:32px;
-    }
+.reservation h2{
+    font-size:32px;
+}
 
-    .reservation p{
-        font-size:15px;
-    }
+.reservation p{
+    font-size:15px;
+}
 
-    .reservation-form input,
-    .reservation-form textarea,
-    .time-select select{
-        width:100%;
-        padding:14px;
-        font-size:15px;
-    }
+.reservation-form input,
+.reservation-form textarea,
+.time-box select{
+    width:100%;
+    padding:14px;
+    font-size:15px;
+}
 
-    .reservation-form label{
-        display:none;
-    }
+.reservation-form button{
+    width:100%;
+}
 
-    .time-select{
-        display:flex;
-        gap:8px;
-    }
-
-    .reservation-form button{
-        width:100%;
-    }
 
 
     /* FOOTER */
