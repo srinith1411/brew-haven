@@ -1,27 +1,40 @@
-const nl = document.querySelectorAll('.nav-links a');
+const navLinks = document.querySelectorAll(".nav-links a");
 
-nl.forEach(link=>{
-    link.addEventListener('click',()=>{
-        change(link);
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        changeActive(link);
     });
 });
 
-function change(link){
-    nl.forEach(link=>link.classList.remove('active'));
-    link.classList.add('active');
+function changeActive(link){
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+    });
+
+    link.classList.add("active");
 }
 
+navLinks[0].classList.add("active");
 
-// Reservation Form
+
+// =========================
+// RESERVATION FORM
+// =========================
 
 const form = document.querySelector("#reservation-form");
+
+if(form){
 
 const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");
 const phoneInput = document.querySelector("#phone");
 const guestsInput = document.querySelector("#guests");
 const dateInput = document.querySelector("#date");
-const timeInput = document.querySelector("#time");
+
+const hourInput = document.querySelector("#hour");
+const minuteInput = document.querySelector("#minute");
+const periodInput = document.querySelector("#period");
+
 const messageInput = document.querySelector("#message");
 
 const successMessage = document.querySelector("#success-message");
@@ -31,13 +44,16 @@ form.addEventListener("submit", function(event){
 
     event.preventDefault();
 
-    let name = nameInput.value;
-    let email = emailInput.value;
-    let phone = phoneInput.value;
+
+    let name = nameInput.value.trim();
+    let email = emailInput.value.trim();
+    let phone = phoneInput.value.trim();
     let guests = guestsInput.value;
     let date = dateInput.value;
-    let time = timeInput.value;
-    let message = messageInput.value;
+
+    let time = `${hourInput.value}:${minuteInput.value} ${periodInput.value}`;
+
+    let message = messageInput.value.trim();
 
 
     if(name === ""){
@@ -45,15 +61,18 @@ form.addEventListener("submit", function(event){
         return;
     }
 
+
     if(email === ""){
         alert("Please enter your email");
         return;
     }
 
-    if(phone.length !== 10){
+
+    if(!/^[0-9]{10}$/.test(phone)){
         alert("Enter valid phone number");
         return;
     }
+
 
     if(guests < 1){
         alert("Number of guests should be at least 1");
@@ -61,7 +80,20 @@ form.addEventListener("submit", function(event){
     }
 
 
+    if(date === ""){
+        alert("Please select date");
+        return;
+    }
+
+
+    if(hourInput.value === "" || minuteInput.value === "" || periodInput.value === ""){
+        alert("Please select booking time");
+        return;
+    }
+
+
     const reservation = {
+
         name:name,
         email:email,
         phone:phone,
@@ -69,6 +101,7 @@ form.addEventListener("submit", function(event){
         date:date,
         time:time,
         message:message
+
     };
 
 
@@ -84,8 +117,12 @@ form.addEventListener("submit", function(event){
 
 });
 
+}
 
-// Dynamic Menu
+
+// =========================
+// DYNAMIC MENU
+// =========================
 
 const extraMenuItems = [
 
@@ -133,10 +170,9 @@ const menuGrid = document.querySelector("#menu-grid");
 let menuShown = false;
 
 
-menuBtn.addEventListener("click", function(event){
+if(menuBtn){
 
-    event.preventDefault();
-
+menuBtn.addEventListener("click", function(){
 
     if(menuShown){
 
@@ -157,21 +193,21 @@ menuBtn.addEventListener("click", function(event){
 
         extraMenuItems.forEach(item=>{
 
-            menuGrid.innerHTML += `
+            menuGrid.insertAdjacentHTML("beforeend",`
 
-            <div class="menu-card extra-card">
+                <div class="menu-card extra-card">
 
-                <img src="assets/${item.image}" alt="${item.name}">
+                    <img src="assets/${item.image}" alt="${item.name}">
 
-                <h3>${item.name}</h3>
+                    <h3>${item.name}</h3>
 
-                <p>${item.description}</p>
+                    <p>${item.description}</p>
 
-                <span class="price">${item.price}</span>
+                    <span class="price">${item.price}</span>
 
-            </div>
+                </div>
 
-            `;
+            `);
 
         });
 
@@ -183,3 +219,5 @@ menuBtn.addEventListener("click", function(event){
     }
 
 });
+
+}

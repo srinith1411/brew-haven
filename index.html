@@ -55,12 +55,11 @@
 
                 </div>
 
-                <div class="nav-button">
+                <div class="nav-button" id="nav-book-btn">
 
-                    <a href="#reservation">Book a Table</a>
+    <a href="#reservation">Book a Table</a>
 
-                </div>
-
+</div>
             </div>
 
         </nav>
@@ -311,8 +310,41 @@
     <label for="date">Date</label>
     <input id="date" type="date" required>
 
-    <label for="time">Time</label>
-    <input id="time" type="time" required>
+   <label for="time">Time</label>
+
+<div class="time-select">
+
+    <select id="hour" required>
+        <option value="">Hour</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+    </select>
+
+    <select id="minute" required>
+        <option value="">Minute</option>
+        <option>00</option>
+        <option>15</option>
+        <option>30</option>
+        <option>45</option>
+    </select>
+
+    <select id="period" required>
+        <option value="">AM/PM</option>
+        <option>AM</option>
+        <option>PM</option>
+    </select>
+
+</div>
 
     <textarea id="message" placeholder="Special Requests (Optional)" rows="5"></textarea>
 
@@ -336,7 +368,7 @@
 
     <footer id ="footer" class="footer">
 
-        <div id="footer-cont" class="container">
+        <div class="container">
 
             <div class="footer-content">
 

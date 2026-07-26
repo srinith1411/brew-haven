@@ -454,7 +454,35 @@ border-bottom:2px solid #c49b63;
 .reservation-form button{
     align-self:center;
 }
+.time-select{
+    display:flex;
+    gap:10px;
+    width:100%;
+}
 
+.time-select select{
+    width:100%;
+    padding:15px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+    font-family:'Poppins',sans-serif;
+    outline:none;
+    background:#fff;
+}
+
+.time-select select:focus{
+    border-color:#c08b45;
+}
+
+
+.reservation-form input[type="date"]{
+    color:#555;
+}
+
+.reservation-form input[type="date"]::-webkit-calendar-picker-indicator{
+    cursor:pointer;
+}
 
 .footer{
     background:#2c1810;
@@ -625,16 +653,26 @@ border-bottom:2px solid #c49b63;
 @media(max-width:768px){
 
     header{
-        position:relative;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        z-index:1000;
+        background:#FAF7F2;
+    }
+
+    .container{
+        width:100%;
+        padding:0 20px;
     }
 
     nav{
-        padding:15px 20px;
+        padding:15px 0;
     }
 
     nav .container{
         flex-direction:column;
-        gap:10px;
+        gap:12px;
     }
 
     .logo h1{
@@ -652,14 +690,15 @@ border-bottom:2px solid #c49b63;
     }
 
     .nav-button a{
-        padding:10px 18px;
+        padding:10px 20px;
     }
 
 
-    /* Hero */
+    /* HERO */
 
     #hero{
         padding:60px 0;
+        margin-top:150px;
     }
 
     #hero .container{
@@ -668,8 +707,16 @@ border-bottom:2px solid #c49b63;
         gap:30px;
     }
 
+    .hero-content{
+        max-width:100%;
+    }
+
     .hero-content h2{
         font-size:36px;
+    }
+
+    .hero-description{
+        font-size:16px;
     }
 
     .hero-buttons{
@@ -677,8 +724,12 @@ border-bottom:2px solid #c49b63;
         flex-wrap:wrap;
     }
 
+    .hero-image img{
+        max-width:320px;
+    }
 
-    /* About */
+
+    /* ABOUT */
 
     #about .container{
         flex-direction:column;
@@ -690,8 +741,12 @@ border-bottom:2px solid #c49b63;
         font-size:32px;
     }
 
+    .about-description{
+        font-size:16px;
+    }
 
-    /* Menu + Gallery */
+
+    /* MENU + GALLERY */
 
     #menu,
     #gallery,
@@ -703,10 +758,11 @@ border-bottom:2px solid #c49b63;
     .menu-grid,
     .gallery-grid{
         grid-template-columns:1fr;
+        gap:25px;
     }
 
 
-    /* Testimonials */
+    /* TESTIMONIAL */
 
     .testimonial-container{
         flex-direction:column;
@@ -719,27 +775,46 @@ border-bottom:2px solid #c49b63;
     }
 
 
-    /* Reservation */
+    /* RESERVATION */
 
     .reservation-form{
         width:100%;
+        max-width:350px;
+        margin:auto;
+        gap:18px;
     }
 
-    .reservation-form label{
-        display:block;
-        text-align:left;
-        margin-top:5px;
-        margin-bottom:8px;
-        font-weight:500;
+    .reservation h2{
+        font-size:32px;
+    }
+
+    .reservation p{
+        font-size:15px;
     }
 
     .reservation-form input,
-    .reservation-form textarea{
+    .reservation-form textarea,
+    .time-select select{
+        width:100%;
+        padding:14px;
+        font-size:15px;
+    }
+
+    .reservation-form label{
+        display:none;
+    }
+
+    .time-select{
+        display:flex;
+        gap:8px;
+    }
+
+    .reservation-form button{
         width:100%;
     }
 
 
-    /* Footer */
+    /* FOOTER */
 
     .footer{
         text-align:center;
@@ -758,11 +833,6 @@ border-bottom:2px solid #c49b63;
         width:100%;
         max-width:350px;
         align-items:center;
-        text-align:center;
-    }
-
-    .footer-about h2,
-    .footer-about p{
         text-align:center;
     }
 
